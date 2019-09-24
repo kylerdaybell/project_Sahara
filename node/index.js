@@ -4,6 +4,7 @@ var chalk = require('chalk');
 var debug = require('debug')('index');
 var morgan = require('morgan');
 var path = require('path');
+var logincontroller = require('./controllers/LoginController.js');
 require('dotenv').config();
 
 
@@ -18,12 +19,20 @@ app.set('view engine','ejs');
 
 //root
 app.get('/',function(req,res){
-  res.render('index',{title:"my title"});
-})
+  logincontroller.getroot(res,req);
+});
+
+app.post('/login',function(req,res){
+  logincontroller.postlogin(res,req);
+});
 
 app.get('/port',function(req,res){
   res.write(port);
+  res.end();
 })
+
+
+
 
 app.listen(port,function(){
   debug(chalk.green(`listening on ${port}`));
