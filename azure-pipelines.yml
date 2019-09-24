@@ -12,7 +12,7 @@ variables:
   azureSubscription: '824d9002-237f-4899-9403-5f71abf20aae'
   
   # Web app name
-  webAppName: 'projectsahara'
+  webAppName: 'projects2'
   
   # Environment name
   environmentName: 'dev'
