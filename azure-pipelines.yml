@@ -12,10 +12,10 @@ variables:
   azureSubscription: '824d9002-237f-4899-9403-5f71abf20aae'
   
   # Web app name
-  webAppName: ''
+  webAppName: 'project sahara'
   
   # Environment name
-  environmentName: ''
+  environmentName: 'dev'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
