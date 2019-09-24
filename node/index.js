@@ -4,15 +4,19 @@ var chalk = require('chalk');
 var debug = require('debug')('index');
 var morgan = require('morgan');
 var path = require('path');
+const bodyParser = require('body-parser');
 var logincontroller = require('./controllers/LoginController.js');
 require('dotenv').config();
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT
 //instantiation
-var app = express();
-app.use(morgan('tiny'));
 
+//setting up app
+var app = express();
+app.use(bodyParser.urlencoded())
+app.use(morgan('tiny'));
+//making the app use the public folder as static files
 app.use(express.static(path.join(__dirname,'/public/')))
 app.set('views','./src/views');
 app.set('view engine','ejs');
@@ -26,18 +30,15 @@ app.post('/login',function(req,res){
   logincontroller.postlogin(res,req);
 });
 
-app.get('/port',function(req,res){
-  res.write(port);
-  res.end();
-})
+
+//this should be removed as soon as other tests are written
+exports.addnametoage = (name, age)=>{
+  return `${name} (${age} years old)`;
+}
 
 
-
-
+//setting up the app to listen on the port deffined in the env file
 app.listen(port,function(){
   debug(chalk.green(`listening on ${port}`));
 });
 
-exports.addnametoage = (name, age)=>{
-  return `${name} (${age} years old)`;
-}
