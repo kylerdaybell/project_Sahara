@@ -9,7 +9,8 @@ var logincontroller = require('./controllers/LoginController.js');
 require('dotenv').config();
 
 
-const port = process.env.PORT
+//const port = process.env.PORT
+const port = process.env.PORT || 1337;
 //instantiation
 
 //setting up app
