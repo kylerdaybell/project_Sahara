@@ -10,7 +10,7 @@ require('dotenv').config();
 
 
 //const port = process.env.PORT
-const port = process.env.PORT || 1337;
+const port = process.env.PORT || 80;
 //instantiation
 
 //setting up app
