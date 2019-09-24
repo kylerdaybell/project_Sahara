@@ -36,7 +36,7 @@ stages:
       displayName: 'Install Node.js'
 
     - script: |
-        cd project_sahara/node/
+        cd project_Sahara/node/
         npm install -g --unsafe-perm=true --allow-root
         npm run build --if-present
         npm run test --if-present
