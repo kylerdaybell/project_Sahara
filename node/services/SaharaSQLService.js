@@ -13,9 +13,9 @@ var SaharaSQLService ={
     
 }
 
+module.exports = SaharaSQLService;
+
 //this should be removed as soon as other tests are written
 exports.addnametoage = (name, age)=>{
     return `${name} (${age} years old)`;
-  }
-
-module.exports = SaharaSQLService;
+}

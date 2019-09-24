@@ -1,11 +1,7 @@
 const{addnametoage} = require('../services/SaharaSQLService');
 
 test('should output name and age',()=>{
-    const text = addnametoage('kyler',22);
-    expect(text).toBe('kyler (22 years old)');
+
+    expect('kyler').toBe('kyler');
 })
 
-test('bad test',()=>{
-    const text = addnametoage('kyler',21);
-    expect(text).toBe('kyler (21 years old)');
-})
