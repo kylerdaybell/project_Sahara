@@ -28,3 +28,7 @@ app.get('/port',function(req,res){
 app.listen(port,function(){
   debug(chalk.green(`listening on ${port}`));
 });
+
+exports.addnametoage = (name, age)=>{
+  return `${name} (${age} years old)`;
+}
