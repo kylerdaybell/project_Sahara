@@ -1,4 +1,4 @@
-const{addnametoage} = require('../index');
+const{addnametoage} = require('../services/SaharaSQLService');
 
 test('should output name and age',()=>{
     const text = addnametoage('kyler',22);

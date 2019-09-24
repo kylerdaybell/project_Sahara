@@ -10,6 +10,12 @@ var SaharaSQLService ={
     postRegister: function(res,req){
 
     }
+    
 }
+
+//this should be removed as soon as other tests are written
+exports.addnametoage = (name, age)=>{
+    return `${name} (${age} years old)`;
+  }
 
 module.exports = SaharaSQLService;

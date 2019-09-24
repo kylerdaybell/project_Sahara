@@ -30,13 +30,6 @@ app.post('/login',function(req,res){
   logincontroller.postlogin(res,req);
 });
 
-
-//this should be removed as soon as other tests are written
-exports.addnametoage = (name, age)=>{
-  return `${name} (${age} years old)`;
-}
-
-
 //setting up the app to listen on the port deffined in the env file
 app.listen(port,function(){
   debug(chalk.green(`listening on ${port}`));
