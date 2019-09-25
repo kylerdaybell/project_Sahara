@@ -42,14 +42,11 @@ stages:
       displayName: 'npm install, build and test'
       workingDirectory: '/home/vsts/work/1/s/node'
       
-    - task: ArchiveFiles@2
-      displayName: 'Archive files'
+      task: Docker@2
+      displayName: Build an image
       inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
+        repository: $(imageName)
+        command: build
+        Dockerfile: app/Dockerfile
 
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      artifact: drop
+
