@@ -2,7 +2,7 @@ var SaharaSQLService = require('./../services/SaharaSQLService');
 
 var LoginController ={
     getroot: function(res,req){
-        return res.render('index',{title:"my title"});
+        return res.render('index',{title:"project sahara"});
     },
     postlogin: function(res,req){
         if(SaharaSQLService.attemptlogin(req.body.username,req.body.password)){

@@ -13,5 +13,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 #open the port
-EXPOSE 8080
+EXPOSE 80
 CMD [ "node", "index.js" ]
