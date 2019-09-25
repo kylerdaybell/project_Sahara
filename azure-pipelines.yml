@@ -43,10 +43,8 @@ stages:
       workingDirectory: '/home/vsts/work/1/s/node'
       
       task: Docker@2
-      displayName: Build an image
       inputs:
-        repository: $(imageName)
         command: build
-        Dockerfile: app/Dockerfile
+        Dockerfile: node/Dockerfile
 
 
