@@ -12,7 +12,7 @@ var LoginController ={
         }
     },
     postRegister: function(res,req){
-        SaharaSQLService.attemptlogin
+        
     }
 }
 

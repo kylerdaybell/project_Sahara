@@ -4,7 +4,13 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>welcome to <%=title%></h1>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Welcome to Project Sahara</h1>
+                <p class="lead">This is a website using mvc</p>
+            </div>
+        </div>
+        <center>
         <div class="card" style="width: 18rem;">
           <div class = "card-body">
             <form action="/login" method="post">
@@ -20,5 +26,6 @@
             </form>
           </div>
         </div>
+        </center>
     </body>
 </html>
