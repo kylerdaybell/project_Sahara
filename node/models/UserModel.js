@@ -7,7 +7,7 @@ var UserModel ={
     },
     login: async function(username,password){
         var user = await ISaharaService.GetUser(username);
-        if(password == user.password){
+        if(bcrypt.compareSync(password,user.password)){
             return true;
         }else{
             return false;
@@ -15,11 +15,11 @@ var UserModel ={
     },
     Register: async function(username,password,confirm){
         if(password == confirm){
-            if(!await ISaharaService.DoseUserExsist(username)){
+            if(await ISaharaService.DoseUserExsist(username)){
                 ISaharaService.CreateNewUser(username,password);
-                return "newusercreated";
-            }else{
                 return "usernameinuse";
+            }else{
+                return "newusercreated"
             }
         }else{
             return "passwordsdonotmatch"

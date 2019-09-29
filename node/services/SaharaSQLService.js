@@ -34,9 +34,9 @@ var SaharaSQLService ={
             password: DB_PASS,
             database: DB_DATA
         });
-        const [rows] = await con.execute('select PASSWORD from USER WHERE EMAIL = ?',[username]);
-        var user = new User(username,rows[0]['PASSWORD']);
-        return user;
+        encryptedpassword = bcrypt.hashSync(password,10);
+        await con.execute('INSERT INTO USER (EMAIL,PASSWORD,ROLE) VALUE (?,?,?)',[username,encryptedpassword,"user"]);
+        return;
     },
     DoseUserExsist: async function(username,password){
         const con = await mysql.createConnection({
