@@ -31,6 +31,9 @@ app.post('/login',function(req,res){
   logincontroller.postlogin(res,req);
 });
 
+app.get('/register',function(req,res){
+  logincontroller.getregister(res,req);
+});
 //setting up the app to listen on the port deffined in the env file
 app.listen(port,function(){
   debug(chalk.green(`listening on ${port}`));

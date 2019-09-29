@@ -5,18 +5,18 @@ var UserModel ={
     constructor: function(ISaharaServiceInsert){
         ISaharaService = ISaharaServiceInsert
     },
-    login: function(username,password){
-        var user = ISaharaService.GetUser(username);
-        
-        if(bcrypt.compareSync(password,user.password)){
+    login: async function(username,password){
+        var user = await ISaharaService.GetUser(username);
+        if(password == user.password){
             return true;
         }else{
             return false;
         }
     },
-    Register: function(username,password,confirm){
+    Register: async function(username,password,confirm){
         if(password == confirm){
             if(!this.GetUserName(username)){
+                ISaharaService.CreateNewUser(username,password);
                 return "newusercreated";
             }else{
                 return "usernameinuse";
