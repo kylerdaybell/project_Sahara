@@ -1,4 +1,5 @@
 var UserModel = require('../models/UserModel');
+UserModel.constructor(require('../services/SaharaTestService'))
 
 test('the UserModel login successful with valid username and password',()=>{
     var result = UserModel.login("kyler","kyler");

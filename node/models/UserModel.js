@@ -1,7 +1,10 @@
-var ISaharaService = require('./../services/SaharaTestService');
+var ISaharaService;
 const bcrypt = require('bcrypt');
 
 var UserModel ={
+    constructor: function(ISaharaServiceInsert){
+        ISaharaService = ISaharaServiceInsert
+    },
     login: function(username,password){
         var user = ISaharaService.GetUser(username);
         

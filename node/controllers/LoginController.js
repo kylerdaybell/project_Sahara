@@ -1,5 +1,8 @@
 var UserModel = require('./../models/UserModel');
 
+UserModel.constructor(require('./../services/SaharaSQLService'));
+
+
 var LoginController ={
     getroot: function(res,req){
         return res.render('index',{title:"project sahara",display:false});
