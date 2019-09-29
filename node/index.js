@@ -15,7 +15,7 @@ const port = process.env.PORT || 80;
 
 //setting up app
 var app = express();
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded());
 app.use(morgan('tiny'));
 //making the app use the public folder as static files
 app.use(express.static(path.join(__dirname,'/public/')))
@@ -33,6 +33,10 @@ app.post('/login',function(req,res){
 
 app.get('/register',function(req,res){
   logincontroller.getregister(res,req);
+});
+
+app.post('/register',function(req,res){
+  logincontroller.postregister(res,req);
 });
 //setting up the app to listen on the port deffined in the env file
 app.listen(port,function(){

@@ -38,7 +38,20 @@ var SaharaSQLService ={
         var user = new User(username,rows[0]['PASSWORD']);
         return user;
     },
-
+    DoseUserExsist: async function(username,password){
+        const con = await mysql.createConnection({
+            host: DB_HOST,
+            user: DB_USER,
+            password: DB_PASS,
+            database: DB_DATA
+        });
+        const [rows] = await con.execute('select PASSWORD from USER WHERE EMAIL = ?',[username]);
+        if(typeof username,rows[0] !== 'undefined'){
+            return true
+        }else{
+            return false
+        }
+    }
 
 }
 module.exports = SaharaSQLService;

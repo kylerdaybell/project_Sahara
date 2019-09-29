@@ -15,7 +15,7 @@ var UserModel ={
     },
     Register: async function(username,password,confirm){
         if(password == confirm){
-            if(!this.GetUserName(username)){
+            if(!await ISaharaService.DoseUserExsist(username)){
                 ISaharaService.CreateNewUser(username,password);
                 return "newusercreated";
             }else{
@@ -24,14 +24,6 @@ var UserModel ={
         }else{
             return "passwordsdonotmatch"
         }
-    },
-    GetUserName: function(username){
-        if(username != "kyler"){
-            return false;
-        }else{
-            return true;
-        }
-        
     }
     
 }
