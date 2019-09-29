@@ -10,9 +10,11 @@
                 <p class="lead">This is a website using mvc</p>
             </div>
         </div>
-        <div class="alert alert-danger" role="alert">
-          <% title %>
-        </div>
+        <%if (display) { %>
+          <div class="alert alert-danger" role="alert">
+            <%=title%>
+          </div>
+          <% } %>
         <center>
         <div class="card" style="width: 18rem;">
           <div class = "card-body">
