@@ -1,4 +1,4 @@
-const{logincontroller} = require('../controllers/LoginController');
+var logincontroller = require('../controllers/LoginController');
 
 
 test('should output name and age',()=>{

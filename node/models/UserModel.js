@@ -1,7 +1,11 @@
-var SaharaSQLService ={
+var ISaharaService = require('./../services/SaharaTestService');
+const bcrypt = require('bcrypt');
+
+var UserModel ={
     login: function(username,password){
-        var user = ISaharaService.GetUser(username)
-        if(username == "kyler" && password == "kyler"){
+        var user = ISaharaService.GetUser(username);
+        
+        if(bcrypt.compareSync(password,user.password)){
             return true;
         }else{
             return false;
@@ -29,4 +33,4 @@ var SaharaSQLService ={
     
 }
 
-module.exports = SaharaSQLService;
+module.exports = UserModel;
