@@ -19,10 +19,10 @@ var UserModel ={
                 ISaharaService.CreateNewUser(username,password);
                 return "usernameinuse";
             }else{
-                return "newusercreated"
+                return "newusercreated";
             }
         }else{
-            return "passwordsdonotmatch"
+            return "passwordsdonotmatch";
         }
     }
     

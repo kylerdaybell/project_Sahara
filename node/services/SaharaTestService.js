@@ -15,6 +15,16 @@ var SaharaTestService ={
             
             return user;
         }
+    },
+    DoseUserExsist: function(username){
+        if(username == "kyler"){
+            return true;
+        }else{
+            return false;
+        }   
+    },
+    CreateNewUser: function(username,password){
+        return;
     }
 }
 
