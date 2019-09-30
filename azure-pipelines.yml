@@ -45,6 +45,6 @@ stages:
       inputs:
         repository: $(kylerdaybell/projectsahara)
         command: build
-        Dockerfile: /home/vsts/work/1/s/node/Dockerfile
+        Dockerfile: ./node/Dockerfile
 
 
