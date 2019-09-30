@@ -43,9 +43,8 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        repository: $(imageName)
+        repository: $(kylerdaybell/projectsahara)
         command: build
         Dockerfile: /home/vsts/work/1/s/node/Dockerfile
-        
 
 
