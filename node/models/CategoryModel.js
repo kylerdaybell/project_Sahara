@@ -5,8 +5,8 @@ var UserModel ={
     constructor: function(ISaharaServiceInsert){
         ISaharaService = ISaharaServiceInsert
     },
-    getAllCategorys: function(username){
-        categorys = ISaharaService.getAllCategorys(username);
+    getAllCategorys: async function(username){
+        categorys = await ISaharaService.getAllCategorys(username);
         return categorys;
     }
     

@@ -51,6 +51,20 @@ var SaharaSQLService ={
         }else{
             return false
         }
+    },
+    getAllCategorys: async function(username){
+        const con = await mysql.createConnection({
+            host: DB_HOST,
+            user: DB_USER,
+            password: DB_PASS,
+            database: DB_DATA
+        });
+        const [rows] = await con.execute('select * from USER A inner join CATEGORY B on A.ID = B.USER_ID where A.EMAIL = ?;',[username]);
+        if(typeof username,rows[0] !== 'undefined'){
+            return rows;
+        }else{
+            return [];
+        }
     }
 
 }

@@ -1,11 +1,11 @@
-var CategoryModel = require('../models/UserModel');
-var session = require('express-session');
+var CategoryModel = require('../models/CategoryModel');
 CategoryModel.constructor(require('../services/SaharaSQLService'));
 
 
 var CategoryController ={
-    getcategory: function(res,req){
-        return res.render('category',{title:req.session.username,display:true});
+    getcategory: async function(res,req){
+        Categorys = await CategoryModel.getAllCategorys(req.session.username);
+        return res.render('category',{title:Categorys,display:true});
     }
 }
 
