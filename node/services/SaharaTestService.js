@@ -25,7 +25,15 @@ var SaharaTestService ={
     },
     CreateNewUser: function(username,password){
         return;
+    },
+    getAllCategorys: function(username){
+        if(username == 'kyler'){
+            return ['home','school'];
+        }else if(username == 'bob'){
+            return [];
+        }
     }
+
 }
 
 module.exports = SaharaTestService;
