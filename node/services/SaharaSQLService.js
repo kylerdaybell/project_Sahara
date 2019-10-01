@@ -52,7 +52,7 @@ var SaharaSQLService ={
             return false
         }
     },
-    getAllCategorys: async function(username){
+    getAllCategories: async function(username){
         const con = await mysql.createConnection({
             host: DB_HOST,
             user: DB_USER,

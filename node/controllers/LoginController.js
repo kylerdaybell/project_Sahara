@@ -6,13 +6,21 @@ var LoginController ={
     getroot: function(res,req){
         return res.render('index',{title:"project sahara",display:false});
     },
+    gethome: function(res,req){
+        if(req.session.username != null){
+            return res.render('home',{title:"project sahara",display:false});
+        }else{
+            return res.render('index',{title:"please login to see this page",display:true});
+        }
+
+    },
     getregister: function(res,req){
         return res.render('register',{title:"project sahara",display:false});
     },
     postlogin: async function(res,req){
         if(await UserModel.login(req.body.username,req.body.password)){
             req.session.username = req.body.username;
-            return res.render('category',{title:req.session.username,display:true});
+            return res.render('home',{title:req.session.username,display:true});
         }else{
             return res.render('index',{title:"your username or password is incorrect",display:true});
         }

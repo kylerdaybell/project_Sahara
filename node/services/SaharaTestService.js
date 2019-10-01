@@ -26,7 +26,7 @@ var SaharaTestService ={
     CreateNewUser: function(username,password){
         return;
     },
-    getAllCategorys: function(username){
+    getAllCategories: function(username){
         if(username == 'kyler'){
             return ['home','school'];
         }else if(username == 'bob'){

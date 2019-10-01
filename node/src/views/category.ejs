@@ -7,10 +7,20 @@
         <%- include navbar.ejs %>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">Welcome <%-title[0]['TITLE']%></h1>
-                <p class="lead">This is a website using mvc</p>
+                <h1 class="display-4">categories</h1>
+                <a href="/newcategory" class="btn btn-primary">New Category</a>
             </div>
         </div>
+        
+        <% for(var i=0; i < title.length; i++) { %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%=title[i]['TITLE']%></h5>
+                  <p class="card-text"><%=title[i]['DISCRIPTION']%></p>
+                  <a href="/category/<%=title[i]['ID']%>" class="btn btn-primary">Edit This Category</a>
+                </div>
+              </div>
+         <% } %>
     </body>
 
 </html>

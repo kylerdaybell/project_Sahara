@@ -4,8 +4,11 @@ CategoryModel.constructor(require('../services/SaharaSQLService'));
 
 var CategoryController ={
     getcategory: async function(res,req){
-        Categorys = await CategoryModel.getAllCategorys(req.session.username);
-        return res.render('category',{title:Categorys,display:true});
+        if(req.session.username != null){
+            categories = await CategoryModel.getAllCategories(req.session.username);
+            return res.render('category',{title:categories,display:true});
+        }
+        return res.render('index',{title:"please login to see this page",display:true});
     }
 }
 

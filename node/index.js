@@ -32,12 +32,16 @@ app.get('/',function(req,res){
   logincontroller.getroot(res,req);
 });
 
-app.post('/login',function(req,res){
-  logincontroller.postlogin(res,req,session);
+app.get('/home',function(req,res){
+  logincontroller.gethome(res,req);
 });
 
-app.get('/category',function(req,res){
-  categorycontroller.getcategory(res,req,session);
+app.post('/login',function(req,res){
+  logincontroller.postlogin(res,req);
+});
+
+app.get('/categories',function(req,res){
+  categorycontroller.getcategory(res,req);
 });
 
 app.get('/register',function(req,res){
