@@ -32,7 +32,11 @@ var SaharaTestService ={
         }else if(username == 'bob'){
             return [];
         }
+    },
+    addNewCategory: async function(username,title,discription,color){
+        return true;
     }
+
 
 }
 

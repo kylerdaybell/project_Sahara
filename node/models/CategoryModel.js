@@ -8,6 +8,10 @@ var UserModel ={
     getAllCategories: async function(username){
         categories = await ISaharaService.getAllCategories(username);
         return categories;
+    },
+    addNewCategory: async function(username,title,discription,color){
+        added = ISaharaService.addNewCategory(username,title,discription,color);
+        return added;
     }
     
 }

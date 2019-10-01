@@ -43,6 +43,12 @@ app.post('/login',function(req,res){
 app.get('/categories',function(req,res){
   categorycontroller.getcategory(res,req);
 });
+app.get('/newcategory',function(req,res){
+  categorycontroller.getaddnewcategory(res,req);
+});
+app.post('/addnewcategory',function(req,res){
+  categorycontroller.postaddnewcategory(res,req);
+});
 
 app.get('/register',function(req,res){
   logincontroller.getregister(res,req);
