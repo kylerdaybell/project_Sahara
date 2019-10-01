@@ -17,6 +17,8 @@ CREATE TABLE NOTIFICATION_ACCOUNT(
     PRIMARY KEY (ID)
 );
 
+insert into CATEGORY (USER_ID,TITLE,COLOR,DISCRIPTION) VALUES (1,'this is a test category','blue','this is a test category for the user kyler.daybell96@gmail.com');
+
 CREATE TABLE CATEGORY(
     ID int NOT NULL AUTO_INCREMENT,
     USER_ID int NOT NULL,
