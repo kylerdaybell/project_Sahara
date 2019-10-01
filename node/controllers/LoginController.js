@@ -1,5 +1,4 @@
 var UserModel = require('./../models/UserModel');
-
 UserModel.constructor(require('./../services/SaharaSQLService'));
 
 
@@ -12,6 +11,7 @@ var LoginController ={
     },
     postlogin: async function(res,req){
         if(await UserModel.login(req.body.username,req.body.password)){
+            req.session.username = req.body.username;
             return res.render('home');
         }else{
             return res.render('index',{title:"your username or password is incorrect",display:true});

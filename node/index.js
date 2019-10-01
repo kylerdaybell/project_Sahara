@@ -4,17 +4,20 @@ var chalk = require('chalk');
 var debug = require('debug')('index');
 var morgan = require('morgan');
 var path = require('path');
+var session = require('express-session');
+
 const bodyParser = require('body-parser');
 var logincontroller = require('./controllers/LoginController.js');
+var categorycontroller = require('./controllers/CategoryController.js');
 require('dotenv').config();
-
-
+var app = express();
+app.use(session({secret: 'ssshhhhh'}));
 //const port = process.env.PORT
 const port = process.env.PORT || 80;
 //instantiation
 
 //setting up app
-var app = express();
+
 app.use(bodyParser.urlencoded());
 app.use(morgan('tiny'));
 //making the app use the public folder as static files
@@ -22,13 +25,19 @@ app.use(express.static(path.join(__dirname,'/public/')))
 app.set('views','./src/views');
 app.set('view engine','ejs');
 
+
+
 //root
 app.get('/',function(req,res){
   logincontroller.getroot(res,req);
 });
 
 app.post('/login',function(req,res){
-  logincontroller.postlogin(res,req);
+  logincontroller.postlogin(res,req,session);
+});
+
+app.get('/category',function(req,res){
+  categorycontroller.getcategory(res,req,session);
 });
 
 app.get('/register',function(req,res){
