@@ -12,6 +12,16 @@ var UserModel ={
     addNewCategory: async function(username,title,discription,color){
         added = ISaharaService.addNewCategory(username,title,discription,color);
         return added;
+    },
+    getCategory: async function(username,id){
+        category = await ISaharaService.getCategory(id);
+        userid = await ISaharaService.getUserId(username);
+        if(userid = category[0]['USER_ID']){
+            return category[0];
+        }else{
+            return null;
+        }
+
     }
     
 }

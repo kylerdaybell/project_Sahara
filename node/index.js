@@ -49,7 +49,9 @@ app.get('/newcategory',function(req,res){
 app.post('/addnewcategory',function(req,res){
   categorycontroller.postaddnewcategory(res,req);
 });
-
+app.get('/editcategory/:id',function(req,res){
+  categorycontroller.geteditcategory(res,req);
+});
 app.get('/register',function(req,res){
   logincontroller.getregister(res,req);
 });

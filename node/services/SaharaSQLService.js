@@ -27,6 +27,17 @@ var SaharaSQLService ={
         var user = new User(username,rows[0]['PASSWORD']);
         return user;
     },
+    getUserId: async function(username){
+        const con = await mysql.createConnection({
+            host: DB_HOST,
+            user: DB_USER,
+            password: DB_PASS,
+            database: DB_DATA
+        });
+        const [rows] = await con.execute('select ID from USER WHERE EMAIL = ?',[username]);
+        var user = new User(username,rows[0]['PASSWORD']);
+        return user;
+    },
     CreateNewUser: async function(username,password){
         const con = await mysql.createConnection({
             host: DB_HOST,
@@ -50,6 +61,20 @@ var SaharaSQLService ={
             return true
         }else{
             return false
+        }
+    },
+    getCategory: async function(id){
+        const con = await mysql.createConnection({
+            host: DB_HOST,
+            user: DB_USER,
+            password: DB_PASS,
+            database: DB_DATA
+        });
+        const [rows] = await con.execute('select * FROM CATEGORY WHERE ID = ?;',[id]);
+        if(typeof username,rows[0] !== 'undefined'){
+            return rows;
+        }else{
+            return [];
         }
     },
     getAllCategories: async function(username){

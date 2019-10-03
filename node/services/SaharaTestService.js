@@ -16,6 +16,13 @@ var SaharaTestService ={
             return user;
         }
     },
+    getUserId: function(username){
+        if(username=="kyler"){
+            return "1";
+        }else{
+            return null;
+        }
+    },
     DoseUserExsist: function(username){
         if(username == "kyler"){
             return true;
