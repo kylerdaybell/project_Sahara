@@ -16,12 +16,22 @@ var UserModel ={
     getCategory: async function(username,id){
         category = await ISaharaService.getCategory(id);
         userid = await ISaharaService.getUserId(username);
-        if(userid = category[0]['USER_ID']){
+        if(userid == category[0]['USER_ID']){
             return category[0];
         }else{
             return null;
         }
 
+    },
+    editCategory: async function(username,id,title,description,color){
+        category = await ISaharaService.getCategory(id);
+        userid = await ISaharaService.getUserId(username);
+        if(userid == category[0]['USER_ID']){
+            categorychanged = await ISaharaService.updateCategory(id,title,description,color);
+            return categorychanged;
+        }else{
+            return false;
+        }
     }
     
 }

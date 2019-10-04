@@ -31,6 +31,7 @@ app.set('view engine','ejs');
 app.get('/',function(req,res){
   logincontroller.getroot(res,req);
 });
+//login controller
 
 app.get('/home',function(req,res){
   logincontroller.gethome(res,req);
@@ -39,7 +40,15 @@ app.get('/home',function(req,res){
 app.post('/login',function(req,res){
   logincontroller.postlogin(res,req);
 });
+app.get('/register',function(req,res){
+  logincontroller.getregister(res,req);
+});
 
+app.post('/register',function(req,res){
+  logincontroller.postregister(res,req);
+});
+
+//category controller
 app.get('/categories',function(req,res){
   categorycontroller.getcategory(res,req);
 });
@@ -52,13 +61,9 @@ app.post('/addnewcategory',function(req,res){
 app.get('/editcategory/:id',function(req,res){
   categorycontroller.geteditcategory(res,req);
 });
-app.get('/register',function(req,res){
-  logincontroller.getregister(res,req);
-});
-
-app.post('/register',function(req,res){
-  logincontroller.postregister(res,req);
-});
+app.post('/updatecategory',function(res,req){
+  categorycontroller.postupdatecategory(res,req);
+})
 //setting up the app to listen on the port deffined in the env file
 app.listen(port,function(){
   debug(chalk.green(`listening on ${port}`));

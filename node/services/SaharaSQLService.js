@@ -99,13 +99,23 @@ var SaharaSQLService ={
             database: DB_DATA
         });
         const [rows] = await con.execute('select ID from USER WHERE EMAIL = ?;',[username]);
-        if(typeof username,rows[0] !== 'undefined'){
+        if(typeof username,rows[0] != 'undefined'){
             userid = rows[0]['ID'];
             await con.execute('INSERT INTO CATEGORY (USER_ID,TITLE,DISCRIPTION,COLOR) VALUES (?,?,?,?)',[userid,title,discription,color]);
             return true;
         }else{
             return false;
         }
+    },    
+    updateCategory:async function(id,title,description,color){
+        const con = await mysql.createConnection({
+            host: DB_HOST,
+            user: DB_USER,
+            password: DB_PASS,
+            database: DB_DATA
+        });
+        await con.execute('UPDATE CATEGORY SET TITLE=? DISCRIPTION=? COLOR=? WHERE ID=?',[title,discription,color,id]);
+        return true;
     }
 
 }
