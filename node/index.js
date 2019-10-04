@@ -63,9 +63,10 @@ app.post('/addnewcategory',function(req,res){
 app.get('/editcategory/:id',function(req,res){
   categorycontroller.geteditcategory(res,req);
 });
-app.post('/updatecategory',function(res,req){
+app.post('/updatecategory',function(req,res){
   categorycontroller.postupdatecategory(res,req);
 })
+
 //setting up the app to listen on the port deffined in the env file
 app.listen(port,function(){
   debug(chalk.green(`listening on ${port}`));

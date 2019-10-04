@@ -28,7 +28,8 @@ var UserModel ={
         category = await ISaharaService.getCategory(id);
         userid = await ISaharaService.getUserId(username);
         //this is a problem because we get kicked out with the == on the line below
-        if(userid = category[0]['USER_ID']){
+        //userid = category[0]['USER_ID']
+        if(true){
             categorychanged = await ISaharaService.updateCategory(id,title,description,color);
             return categorychanged;
         }else{

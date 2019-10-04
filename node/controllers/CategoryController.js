@@ -35,6 +35,17 @@ var CategoryController ={
             }
         }
         return res.render('index',{title:"please login to see this page",display:true});
+    },    
+    postupdatecategory: async function(res,req){
+        if(req.session.username != null){
+            category = await CategoryModel.editCategory(req.session.username,req.body.id,req.body.title,req.body.description,req.body.color);
+            if(category!=null){
+                return res.redirect('/categories');
+            }
+        }else{
+            return res.render('index',{title:"please login to see this page",display:true});     
+        }
+
     }
 }
 

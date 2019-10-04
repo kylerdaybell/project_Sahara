@@ -114,7 +114,7 @@ var SaharaSQLService ={
             password: DB_PASS,
             database: DB_DATA
         });
-        await con.execute('UPDATE CATEGORY SET TITLE=? DISCRIPTION=? COLOR=? WHERE ID=?',[title,discription,color,id]);
+        await con.execute('UPDATE CATEGORY SET TITLE=? ,DISCRIPTION=?, COLOR=? WHERE ID=?',[title,description,color,id]);
         return true;
     }
 
