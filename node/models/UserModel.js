@@ -24,6 +24,10 @@ var UserModel ={
         }else{
             return "passwordsdonotmatch";
         }
+    },    
+    getUserId: async function(username){
+        userid = ISaharaService.getUserId(user);
+        return userid;
     }
     
 }
