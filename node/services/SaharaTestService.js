@@ -62,6 +62,28 @@ var SaharaTestService ={
             category[0]={'USER_ID':2};
             return category;
         }
+    },    
+    updateCategory:async function(id,title,description,color){
+        return true;
+    },
+    getUserId: async function(username){
+        if(username === "kyler"){
+            return 1;
+        }else{
+            return 0;
+        }
+    },
+    getCategory: async function(id){
+        if(id == 1){
+            var category = [];
+            category[0]={'USER_ID':1};
+            return category;
+        }else{
+            var category = [];
+            category[0]={'USER_ID':2};
+            return category;
+        }
+
     }
 
 }
