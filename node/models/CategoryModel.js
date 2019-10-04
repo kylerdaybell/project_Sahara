@@ -16,6 +16,7 @@ var UserModel ={
     getCategory: async function(username,id){
         category = await ISaharaService.getCategory(id);
         userid = await ISaharaService.getUserId(username);
+        //this is a problem because we get kicked out with the == on the line below
         if(userid = category[0]['USER_ID']){
             return category[0];
         }else{
