@@ -24,7 +24,7 @@ var UserModel ={
         }
 
     },    
-    editCategory: async function(username,id,title,description,color){
+    updateCategory: async function(username,id,title,description,color){
         category = await ISaharaService.getCategory(id);
         userid = await ISaharaService.getUserId(username);
         //this is a problem because we get kicked out with the == on the line below

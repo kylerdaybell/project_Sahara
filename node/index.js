@@ -19,7 +19,7 @@ const port = process.env.PORT || 80;
 //setting up app
 
 app.use(bodyParser.urlencoded());
-app.use(morgan('tiny'));
+//app.use(morgan('tiny'));
 //making the app use the public folder as static files
 app.use(express.static(path.join(__dirname,'/public/')))
 app.set('views','./src/views');

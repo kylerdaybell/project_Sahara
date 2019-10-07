@@ -38,7 +38,7 @@ var CategoryController ={
     },    
     postupdatecategory: async function(res,req){
         if(req.session.username != null){
-            category = await CategoryModel.editCategory(req.session.username,req.body.id,req.body.title,req.body.description,req.body.color);
+            category = await CategoryModel.updateCategory(req.session.username,req.body.id,req.body.title,req.body.description,req.body.color);
             if(category!=null){
                 return res.redirect('/categories');
             }
