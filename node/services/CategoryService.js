@@ -1,7 +1,7 @@
 var ISaharaService;
 const bcrypt = require('bcrypt');
 
-var UserModel ={
+var CategoryService ={
     constructor: function(ISaharaServiceInsert){
         ISaharaService = ISaharaServiceInsert
     },
@@ -51,4 +51,4 @@ var UserModel ={
     
 }
 
-module.exports = UserModel;
+module.exports = CategoryService;

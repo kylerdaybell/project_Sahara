@@ -1,5 +1,5 @@
 var SaharaTestService = require('../services/SaharaTestService');
-var CategoryModel = require('../models/CategoryModel');
+var CategoryModel = require('../services/CategoryService');
 CategoryModel.constructor(SaharaTestService);
 
 test('Given a valid username and the user has created a category before the category model should return at least one category',async ()=>{

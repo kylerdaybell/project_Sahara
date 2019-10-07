@@ -4,12 +4,28 @@ var chalk = require('chalk');
 var debug = require('debug')('index');
 var morgan = require('morgan');
 var path = require('path');
+var cors = require('cors');
 var session = require('express-session');
+var whitelist = "http:/144.17.24.16";
+
+var corsOptions={
+  origin:function(origin,callback){
+    if(whitelist.indexOf(origin)===-1){
+      callback(null,true)
+    }else{
+      callback(new Error('not allowed by cors'))
+    }
+  }
+}
+
+
 
 const bodyParser = require('body-parser');
 var logincontroller = require('./controllers/LoginController.js');
 var categorycontroller = require('./controllers/CategoryController.js');
 require('dotenv').config();
+
+
 var app = express();
 app.use(session({secret: 'ssshhhhh'}));
 //const port = process.env.PORT
@@ -28,7 +44,7 @@ app.set('view engine','ejs');
 
 
 //root
-app.get('/',function(req,res){
+app.get('/',cors(corsOptions),function(req,res){
   logincontroller.getroot(res,req);
 });
 //login controller

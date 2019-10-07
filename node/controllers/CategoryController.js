@@ -1,12 +1,12 @@
-var CategoryModel = require('../models/CategoryModel');
+var CategoryService = require('../services/CategoryService');
 var UserModel = require('./../models/UserModel');
-CategoryModel.constructor(require('../services/SaharaSQLService'));
+CategoryService.constructor(require('../services/SaharaSQLService'));
 UserModel.constructor(require('./../services/SaharaSQLService'));
 
 var CategoryController ={
     getcategory: async function(res,req){
         if(req.session.username != null){
-            categories = await CategoryModel.getAllCategories(req.session.username);
+            categories = await CategoryService.getAllCategories(req.session.username);
             return res.render('category',{title:categories,display:true});
         }
         return res.render('index',{title:"please login to see this page",display:true});
@@ -19,7 +19,7 @@ var CategoryController ={
     },
     postaddnewcategory: async function(res,req){
         if(req.session.username != null){
-            added = CategoryModel.addNewCategory(req.session.username,req.body.title,req.body.description,req.body.color);
+            added = CategoryService.addNewCategory(req.session.username,req.body.title,req.body.description,req.body.color);
             if(added){
                 return res.redirect('/categories');
             }
@@ -29,7 +29,7 @@ var CategoryController ={
     geteditcategory: async function(res,req){
         if(req.session.username != null){
             var id = req.params.id;
-            category = await CategoryModel.getCategory(req.session.username,id);
+            category = await CategoryService.getCategory(req.session.username,id);
             if(category!=null){
                 return res.render('editcategory',{editcategory:category});
             }
@@ -38,7 +38,7 @@ var CategoryController ={
     },    
     postupdatecategory: async function(res,req){
         if(req.session.username != null){
-            category = await CategoryModel.updateCategory(req.session.username,req.body.id,req.body.title,req.body.description,req.body.color);
+            category = await CategoryService.updateCategory(req.session.username,req.body.id,req.body.title,req.body.description,req.body.color);
             if(category!=null){
                 return res.redirect('/categories');
             }
@@ -49,7 +49,7 @@ var CategoryController ={
     },
     getremovecategory: async function(res,req){
         if(req.session.username != null){
-            category = await CategoryModel.removeCategory(req.session.username,req.params.id);
+            category = await CategoryService.removeCategory(req.session.username,req.params.id);
             if(category!=null){
                 return res.redirect('/categories');
             }
