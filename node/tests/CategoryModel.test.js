@@ -18,11 +18,11 @@ test('Given a user is logged in that user can add catagories to the database',as
 })
 
 test('givin a valid category id a user who owns that category can edit and update it',async ()=>{
-    WasCategoryEdited = await CategoryModel.editCategory('kyler',1,'category name','category description','color');
-    expect(WasCategoryEdited).toBe(true);
+    WasCategoryEdited = await CategoryModel.updateCategory('kyler',1,'category name','category description','color');
+    expect(WasCategoryAdded).toBe(true);
 })
 
 test('givin an invalid category id a user who owns that category can not edit and update it',async ()=>{
-    WasCategoryEdited = await CategoryModel.editCategory('bob',5,'category name','category description','color');
-    expect(WasCategoryEdited).toBe(false);
+    WasCategoryEdited = await CategoryModel.updateCategory('bob',5,'category name','category description','color');
+    expect(WasCategoryAdded).toBe(false);
 })

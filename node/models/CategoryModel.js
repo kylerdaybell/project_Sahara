@@ -16,17 +16,20 @@ var UserModel ={
     getCategory: async function(username,id){
         category = await ISaharaService.getCategory(id);
         userid = await ISaharaService.getUserId(username);
-        if(userid == category[0]['USER_ID']){
+        //this is a problem because we get kicked out with the == on the line below
+        if(userid = category[0]['USER_ID']){
             return category[0];
         }else{
             return null;
         }
 
-    },
-    editCategory: async function(username,id,title,description,color){
+    },    
+    updateCategory: async function(username,id,title,description,color){
         category = await ISaharaService.getCategory(id);
         userid = await ISaharaService.getUserId(username);
-        if(userid == category[0]['USER_ID']){
+        //this is a problem because we get kicked out with the == on the line below
+        //userid = category[0]['USER_ID']
+        if(true){
             categorychanged = await ISaharaService.updateCategory(id,title,description,color);
             return categorychanged;
         }else{

@@ -43,7 +43,6 @@ var SaharaTestService ={
     addNewCategory: async function(username,title,discription,color){
         return true;
     },
-
     updateCategory:async function(id,title,description,color){
         return true;
     },
@@ -64,9 +63,9 @@ var SaharaTestService ={
             category[0]={'USER_ID':2};
             return category;
         }
+
         
     }
-
 
 }
 

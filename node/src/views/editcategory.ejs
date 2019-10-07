@@ -7,7 +7,8 @@
         <%- include navbar.ejs %>
         <form action="/updatecategory" method="post">
             <div class="form-inline">
-              <input type="hidden" value="<%-category['ID']%>" name="ID">
+
+              <input type="hidden" value="<%-category['ID']%>" name="id">
               <label for="title"><b>Title</b></label>
               <input type="text" class="form-control" value="<%-category['TITLE']%>"  name="title" required>
             </div>
