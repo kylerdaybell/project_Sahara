@@ -46,6 +46,17 @@ var CategoryController ={
             return res.render('index',{title:"please login to see this page",display:true});     
         }
 
+    },
+    getremovecategory: async function(res,req){
+        if(req.session.username != null){
+            category = await CategoryModel.removeCategory(req.session.username,req.params.id);
+            if(category!=null){
+                return res.redirect('/categories');
+            }
+        }else{
+            return res.render('index',{title:"please login to see this page",display:true});     
+        }
+
     }
 }
 

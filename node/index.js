@@ -74,6 +74,9 @@ app.get('/editcategory/:id',function(req,res){
 app.post('/updatecategory',function(req,res){
   categorycontroller.postupdatecategory(res,req);
 })
+app.get('/removecategory/:id',function(req,res){
+  categorycontroller.getremovecategory(res,req);
+});
 
 //setting up the app to listen on the port deffined in the env file
 app.listen(port,function(){

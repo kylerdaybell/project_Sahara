@@ -109,16 +109,23 @@ var SaharaSQLService ={
 
     },
     updateCategory:async function(id,title,description,color){
-        console.log("in update category");
-
         const con = await mysql.createConnection({
             host: DB_HOST,
             user: DB_USER,
             password: DB_PASS,
             database: DB_DATA
         });
-        console.log(id);
         await con.execute('UPDATE CATEGORY SET TITLE=? ,DISCRIPTION=?, COLOR=? WHERE ID=?',[title,description,color,id]);
+        return true;
+    },
+    removeCategory:async function(id){
+        const con = await mysql.createConnection({
+            host: DB_HOST,
+            user: DB_USER,
+            password: DB_PASS,
+            database: DB_DATA
+        });
+        await con.execute('DELETE FROM CATEGORY WHERE ID=?',[id]);
         return true;
     }
 
