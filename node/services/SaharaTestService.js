@@ -65,6 +65,9 @@ var SaharaTestService ={
         }
 
         
+    },
+    removeCategory:async function(id){
+        return true;
     }
 
 }

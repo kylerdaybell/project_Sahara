@@ -27,3 +27,10 @@ test('givin an invalid category id a user who owns that category can not edit an
     WasCategoryEdited = await CategoryModel.updateCategory('bob',5,'category name','category description','color');
     expect(WasCategoryAdded).toBe(true);
 })
+
+test('givin a valid username the user can delete a category',async ()=>{
+    WasCategoryEdited = await CategoryModel.removeCategory('kyler',1);
+    expect(WasCategoryAdded).toBe(true);
+})
+
+
