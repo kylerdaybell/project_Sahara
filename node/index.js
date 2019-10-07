@@ -28,7 +28,6 @@ require('dotenv').config();
 
 var app = express();
 app.use(session({secret: 'ssshhhhh'}));
-//const port = process.env.PORT
 const port = process.env.PORT || 80;
 //instantiation
 
@@ -45,6 +44,7 @@ app.set('view engine','ejs');
 
 //root
 app.get('/',cors(corsOptions),function(req,res){
+  console.log("got / requst");
   logincontroller.getroot(res,req);
 });
 //login controller
