@@ -1,30 +1,28 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </head>
+    <%- include head.ejs %>
+
     <body>
         <%- include navbar.ejs %>
-        <form action="/updatecategory" method="post">
-            <div class="form-inline">
-
-              <input type="hidden" value="<%-category['ID']%>" name="id">
-              <label for="title"><b>Title</b></label>
-              <input type="text" class="form-control" value="<%-category['TITLE']%>"  name="title" required>
-            </div>
-            <div class="form-inline">
-              <label for="description"><b>description</b></label>
-              <input type="textarea" class="form-control" value="<%-category['DISCRIPTION']%>"  name="description" required>
-            </div>
-            <div class="form-inline">
-                <label for="color"><b>color</b></label>
-                <input type="color" value="<%-category['COLOR']%>" name="color" required>
+        <div class="w3-container">
+          <div class="w3-card-4">
+              <div class="w3-container w3-blue">
+                  <h2>Edit Category</h2>
               </div>
-            <div class="form-inline">
-              <button type="submit" class="btn btn-primary">update</button>
-            </div>
-          </form>
-        <a href="/removecategory/<%-category['ID']%>" class="btn btn-danger">delete</a>
+            <form class = "w3-container" action="/updatecategory" method="post">
+                  <input type="hidden" value="<%-category['ID']%>" name="id">
+                  <label >Title</label>
+                  <input type="text" class="w3-input" placeholder="enter category title" value="<%-category['TITLE']%>" name="title" required>
+                  <label>description</label>
+                  <input type="textarea" class="w3-input" placeholder="description" value="<%-category['DISCRIPTION']%>"  name="description" required>
+                  <label >color</label>
+                  <select name="color">
+                  <%- include colorselect.ejs %>
+                  </select>
+                  <button type="submit" class="w3-btn w3-blue">update</button>
+                  <a href="/removecategory/<%-category['ID']%>" class="w3-btn w3-red">delete</a>  
+            </form> 
+          </div>  
+        </div>
     </body>
 
 </html>

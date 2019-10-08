@@ -1,27 +1,33 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </head>
+    <%- include head.ejs %>
+
     <body>
         <%- include navbar.ejs %>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">categories</h1>
-                <a href="/newcategory" class="btn btn-primary">New Category</a>
+        <div class="w3-container">
+                <div class="w3-card">
+                        <div class="w3-container w3-blue">
+                            <h1 class="display-4 w3-blue">categories</h1>
+                        </div>
+
+            <a href="/newcategory" class="w3-button w3-blue">New Category</a>
+            <div class="container w3-row w3-center">
+            <% for(var i=0; i < title.length; i++) { %>
+                <%if(i%4 == 0){%>
+                    </div>
+                    <div class="container w3-row ">
+                <%}%>
+                <div class="w3-container w3-quarter w3-hover-shadow">
+                    <div class="container <%=title[i]['COLOR']%>">
+                        <h2 class="card-title"><%=title[i]['TITLE']%></h2>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text"><%=title[i]['DISCRIPTION']%></p>
+                    <a href="/editcategory/<%=title[i]['ID']%>" class="w3-button">...</a>
+                    </div>
+                </div>
+            <% } %>
             </div>
         </div>
-        <div class="container">
-        <% for(var i=0; i < title.length; i++) { %>
-            <div class="card" style="width: 18rem; display: inline-block; background-color:<%=title[i]['COLOR']%>">
-                <div class="card-body">
-                  <h5 class="card-title"><%=title[i]['TITLE']%></h5>
-                  <p class="card-text"><%=title[i]['DISCRIPTION']%></p>
-                  <a href="/editcategory/<%=title[i]['ID']%>" class="btn btn-primary">Edit This Category</a>
-                </div>
-              </div>
-         <% } %>
         </div>
     </body>
-
 </html>

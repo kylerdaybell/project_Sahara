@@ -1,4 +1,4 @@
-var UserModel = require('./../models/UserModel');
+var UserModel = require('../services/UserModel');
 UserModel.constructor(require('./../services/SaharaSQLService'));
 
 let myPeople = "go";
@@ -32,6 +32,10 @@ var LoginController ={
         }else{
             return res.render('register',{title:usercreationstatus,display:true});
         }
+    },
+    getlogout: function(res,req){
+        req.session.destroy();
+        return res.render('index',{title:"project sahara",display:false});
     }
 }
 

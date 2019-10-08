@@ -1,40 +1,36 @@
 <html>
-    <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Welcome to Project Sahara</h1>
-                <p class="lead">Sign In</p>
-            </div>
-        </div>
-        <%if (display) { %>
-          <div class="alert alert-danger" role="alert">
+<%- include head.ejs %>
+
+<body>
+    <div class="w3-row w3-center">
+      <center>
+        <div class="w3-content w3-twothird w3-display-topmiddle">
+          <div class="w3-blue ">
+            <h1>Welcome to Project Sahara</h1>
+            <p>Sign In</p>
+          </div>
+          <%if (display) { %>
+          <div class="w3-panel w3-red" role="alert">
             <%=title%>
           </div>
           <% } %>
-        <center>
-        <div class="card" style="width: 18rem;">
-          <div class = "card-body">
+
+          <div class="w3-card">
             <form action="/login" method="post">
-              <div class="form-inline">
-                <label for="username"><b>Email</b></label>
-                <input type="email" class="form-control" placeholder="Enter Email" name="username" required>
-              </div>
-              <div class="form-inline">
-                <label for="psw"><b>Password</b></label>
-                <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
-              </div>
-              <div class="form-inline">
-                <button type="submit" class="btn btn-primary">Login</button>
-              </div>
+              <label>Email</label>
+              <input type="email" class="w3-input" placeholder="Enter Email" name="username" required>
+
+              <label for="psw"><b>Password</b></label>
+              <input type="password" class="w3-input" placeholder="Enter Password" name="password" required>
+              <button type="submit" class="w3-btn w3-blue">Login</button>
             </form>
           </div>
-        </div>
-        <a href="/register" class="btn btn-secondary">register</a>
-        </center>
 
-    </body>
+          <a href="/register" class="w3-btn w3-green">register</a>
+
+        </div>
+      </center>
+    </div>
+</body>
+
 </html>

@@ -1,5 +1,5 @@
 var CategoryService = require('../services/CategoryService');
-var UserModel = require('./../models/UserModel');
+var UserModel = require('../services/UserModel');
 CategoryService.constructor(require('../services/SaharaSQLService'));
 UserModel.constructor(require('./../services/SaharaSQLService'));
 
