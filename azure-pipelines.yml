@@ -37,6 +37,7 @@ stages:
 
     - script: |
         npm install
+        npm test
         npm run build --if-present
       displayName: 'npm install, build and test'
       workingDirectory: '/home/vsts/work/1/s/node'
