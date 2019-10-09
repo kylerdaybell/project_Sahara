@@ -35,8 +35,8 @@ var SaharaSQLService ={
             database: DB_DATA
         });
         const [rows] = await con.execute('select ID from USER WHERE EMAIL = ?',[username]);
-        var user = new User(username,rows[0]['PASSWORD']);
-        return user;
+        var userid = rows[0]['ID'];
+        return userid;
     },
     CreateNewUser: async function(username,password){
         const con = await mysql.createConnection({

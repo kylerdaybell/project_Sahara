@@ -60,7 +60,7 @@ var SaharaTestService ={
             return category;
         }else{
             var category = [];
-            category[0]={'USER_ID':2};
+            category[0]={'USER_ID':4};
             return category;
         }
 
