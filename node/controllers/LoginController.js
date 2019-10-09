@@ -20,7 +20,7 @@ var LoginController ={
     postlogin: async function(res,req){
         if(await UserModel.login(req.body.username,req.body.password)){
             req.session.username = req.body.username;
-            return res.render('home',{title:req.session.username,display:true});
+            return res.render('home',{title:"project sahara",display:true});
         }else{
             return res.render('index',{title:"your username or password is incorrect",display:true});
         }

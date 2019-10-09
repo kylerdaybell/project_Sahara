@@ -1,36 +1,27 @@
 <html>
 <%- include head.ejs %>
-
 <body>
-    <div class="w3-row w3-center">
-      <center>
-        <div class="w3-content w3-twothird w3-display-topmiddle">
-          <div class="w3-blue ">
-            <h1>Welcome to Project Sahara</h1>
-            <p>Sign In</p>
-          </div>
-          <%if (display) { %>
-          <div class="w3-panel w3-red" role="alert">
-            <%=title%>
-          </div>
-          <% } %>
 
-          <div class="w3-card">
+    <div class="w3-container w3-blue">
+      <h1>Project Sahara</h1>
+    </div>
+    <%if (display) { %>
+    <div class="w3-panel w3-red" role="alert">
+      <p><%=title%></p>
+    </div>
+    <% } %>
+    <div class="w3-container w3-row">
+      <div class="w3-card w3-quarter">
             <form action="/login" method="post">
-              <label>Email</label>
-              <input type="email" class="w3-input" placeholder="Enter Email" name="username" required>
+        <label>Email</label>
+        <input type="email" class="w3-input" placeholder="Enter Email" name="username" required>
 
-              <label for="psw"><b>Password</b></label>
-              <input type="password" class="w3-input" placeholder="Enter Password" name="password" required>
-              <button type="submit" class="w3-btn w3-blue">Login</button>
-            </form>
-          </div>
-
-          <a href="/register" class="w3-btn w3-green">register</a>
-
-        </div>
-      </center>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" class="w3-input" placeholder="Enter Password" name="password" required>
+        <button type="submit" class="w3-btn w3-blue">Login</button>
+        </form>
+        <a href="/register" class="w3-btn w3-green">register</a>
+      </div>
     </div>
 </body>
-
 </html>

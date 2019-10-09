@@ -44,7 +44,6 @@ app.set('view engine','ejs');
 
 //root
 app.get('/',cors(corsOptions),function(req,res){
-  console.log("got / requst");
   logincontroller.getroot(res,req);
 });
 //login controller

@@ -3,13 +3,11 @@
 
     <body>
         <%- include navbar.ejs %>
-        <div class="w3-container">
-                <div class="w3-card">
-                        <div class="w3-container w3-blue">
-                            <h1 class="display-4 w3-blue">categories</h1>
-                        </div>
+        <div class="w3-container w3-blue">
+                <h1 >Categories</h1>
+        </div>
 
-            <a href="/newcategory" class="w3-button w3-blue">New Category</a>
+            <a href="/newcategory" class="w3-button">New Category</a>
             <div class="container w3-row w3-center">
             <% for(var i=0; i < title.length; i++) { %>
                 <%if(i%4 == 0){%>
@@ -18,7 +16,7 @@
                 <%}%>
                 <div class="w3-container w3-quarter w3-hover-shadow">
                     <div class="container <%=title[i]['COLOR']%>">
-                        <h2 class="card-title"><%=title[i]['TITLE']%></h2>
+                        <h2 class="card-title w3-text-white"><%=title[i]['TITLE']%></h2>
                     </div>
                     <div class="card-body">
                     <p class="card-text"><%=title[i]['DISCRIPTION']%></p>
