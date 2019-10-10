@@ -7,7 +7,7 @@ var CategoryController ={
     getcategories: async function(req,res){
         if(req.session.username != null){
             categories = await CategoryService.getAllCategories(req.session.username);
-            return res.render('categories',{categories:categories,display:true});
+            return res.render('categories',{categories:categories});
         }
         return res.render('index',{title:"please login to see this page",display:true});
     },
@@ -31,7 +31,7 @@ var CategoryController ={
             var id = req.params.id;
             category = await CategoryService.getCategory(req.session.username,id);
             if(category!=null){
-                return res.render('editcategory',{editcategory:category});
+                return res.render('editcategory',{category:category});
             }
         }
         return res.render('index',{title:"please login to see this page",display:true});
