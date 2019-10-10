@@ -1,7 +1,7 @@
 var CategoryService = require('../services/CategoryService');
-var UserModel = require('../services/UserModel');
+var UserService = require('../services/UserService');
 CategoryService.constructor(require('../services/SaharaSQLService'));
-UserModel.constructor(require('./../services/SaharaSQLService'));
+UserService.constructor(require('./../services/SaharaSQLService'));
 
 var CategoryController ={
     getcategories: async function(req,res){

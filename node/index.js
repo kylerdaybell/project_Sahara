@@ -23,6 +23,7 @@ var corsOptions={
 const bodyParser = require('body-parser');
 var logincontroller = require('./controllers/LoginController.js');
 var categorycontroller = require('./controllers/CategoryController.js');
+var eventcontroller = require('./controllers/EventController.js');
 require('dotenv').config();
 
 
@@ -94,6 +95,11 @@ app.get('/removecategory/:id',function(req,res){
 });
 app.get("/categorydetails/:id",function(req,res){
   categorycontroller.getcategorydetails(req,res);
+});
+
+//event controller
+app.get('/events',function(req,res){
+  eventcontroller.getevents(req,res);
 });
 
 //setting up the app to listen on the port deffined in the env file

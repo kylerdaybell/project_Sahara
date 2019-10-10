@@ -1,5 +1,5 @@
-var UserModel = require('../services/UserModel');
-UserModel.constructor(require('./../services/SaharaSQLService'));
+var UserService = require('../services/UserService');
+UserService.constructor(require('./../services/SaharaSQLService'));
 
 let myPeople = "go";
 var LoginController ={
@@ -18,7 +18,7 @@ var LoginController ={
         return res.render('register',{title:"project sahara",display:false});
     },
     postlogin: async function(req,res){
-        if(await UserModel.login(req.body.username,req.body.password)){
+        if(await UserService.login(req.body.username,req.body.password)){
             req.session.username = req.body.username;
             return res.render('home',{title:"project sahara",display:true});
         }else{
@@ -26,7 +26,7 @@ var LoginController ={
         }
     },
     postregister: async function(req,res){
-        let  usercreationstatus = await UserModel.Register(req.body.username,req.body.password,req.body.confirm)
+        let  usercreationstatus = await UserService.Register(req.body.username,req.body.password,req.body.confirm)
         if(usercreationstatus = "newusercreated"){
             return res.render('index',{title:"",display:false});
         }else{
