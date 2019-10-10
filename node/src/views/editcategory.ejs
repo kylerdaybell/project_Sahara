@@ -16,7 +16,8 @@
                   <input type="textarea" class="w3-input" placeholder="description" value="<%-category['DISCRIPTION']%>"  name="description" required>
                   <label >color</label>
                   <select name="color">
-                  <%- include colorselect.ejs %>
+                    <option value="<%-category['COLOR']%>" selected><%-category['COLOR']%></option>
+                    <%- include colorselect.ejs %>
                   </select>
                   <button type="submit" class="w3-btn w3-blue">update</button>
                   <a href="/removecategory/<%-category['ID']%>" class="w3-btn w3-red">delete</a>  
