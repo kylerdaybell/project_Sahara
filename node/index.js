@@ -44,53 +44,56 @@ app.set('view engine','ejs');
 
 //root
 app.get('/',cors(corsOptions),function(req,res){
-  logincontroller.getroot(res,req);
+  logincontroller.getroot(req,res);
 });
 //login controller
 
 //login controller
 app.get('/home',function(req,res){
-  logincontroller.gethome(res,req);
+  logincontroller.gethome(req,res);
 });
 
 app.post('/login',function(req,res){
-  logincontroller.postlogin(res,req);
+  logincontroller.postlogin(req,res);
 });
 app.get('/register',function(req,res){
-  logincontroller.getregister(res,req);
+  logincontroller.getregister(req,res);
 });
 
 app.post('/register',function(req,res){
-  logincontroller.postregister(res,req);
+  logincontroller.postregister(req,res);
 });
 
 app.get('/register',function(req,res){
-  logincontroller.getregister(res,req);
+  logincontroller.getregister(req,res);
 });
 
 app.post('/register',function(req,res){
-  logincontroller.postregister(res,req);
+  logincontroller.postregister(req,res);
 });
 
 //category controller
 
 app.get('/categories',function(req,res){
-  categorycontroller.getcategory(res,req);
+  categorycontroller.getcategories(req,res);
 });
 app.get('/newcategory',function(req,res){
-  categorycontroller.getaddnewcategory(res,req);
+  categorycontroller.getaddnewcategory(req,res);
 });
 app.post('/addnewcategory',function(req,res){
-  categorycontroller.postaddnewcategory(res,req);
+  categorycontroller.postaddnewcategory(req,res);
 });
 app.get('/editcategory/:id',function(req,res){
-  categorycontroller.geteditcategory(res,req);
+  categorycontroller.geteditcategory(req,res);
 });
 app.post('/updatecategory',function(req,res){
-  categorycontroller.postupdatecategory(res,req);
+  categorycontroller.postupdatecategory(req,res);
 })
 app.get('/removecategory/:id',function(req,res){
   categorycontroller.getremovecategory(res,req);
+});
+app.get("/categorydetails/:id",function(req,res){
+  categorycontroller.getcategorydetails(req,res);
 });
 
 //setting up the app to listen on the port deffined in the env file

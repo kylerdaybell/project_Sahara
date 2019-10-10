@@ -4,20 +4,20 @@ CategoryService.constructor(require('../services/SaharaSQLService'));
 UserModel.constructor(require('./../services/SaharaSQLService'));
 
 var CategoryController ={
-    getcategory: async function(res,req){
+    getcategories: async function(req,res){
         if(req.session.username != null){
             categories = await CategoryService.getAllCategories(req.session.username);
-            return res.render('category',{title:categories,display:true});
+            return res.render('categories',{categories:categories,display:true});
         }
         return res.render('index',{title:"please login to see this page",display:true});
     },
-    getaddnewcategory: function(res,req){
+    getaddnewcategory: function(req,res){
         if(req.session.username != null){
             return res.render('newcategory');
         }
         return res.render('index',{title:"please login to see this page",display:true});
     },
-    postaddnewcategory: async function(res,req){
+    postaddnewcategory: async function(req,res){
         if(req.session.username != null){
             added = CategoryService.addNewCategory(req.session.username,req.body.title,req.body.description,req.body.color);
             if(added){
@@ -26,7 +26,7 @@ var CategoryController ={
         }
         return res.render('index',{title:"please login to see this page",display:true});
     },
-    geteditcategory: async function(res,req){
+    geteditcategory: async function(req,res){
         if(req.session.username != null){
             var id = req.params.id;
             category = await CategoryService.getCategory(req.session.username,id);
@@ -36,7 +36,7 @@ var CategoryController ={
         }
         return res.render('index',{title:"please login to see this page",display:true});
     },    
-    postupdatecategory: async function(res,req){
+    postupdatecategory: async function(req,res){
         if(req.session.username != null){
             category = await CategoryService.updateCategory(req.session.username,req.body.id,req.body.title,req.body.description,req.body.color);
             if(category!=null){
@@ -47,11 +47,22 @@ var CategoryController ={
         }
 
     },
-    getremovecategory: async function(res,req){
+    getremovecategory: async function(req,res){
         if(req.session.username != null){
             category = await CategoryService.removeCategory(req.session.username,req.params.id);
             if(category!=null){
                 return res.redirect('/categories');
+            }
+        }else{
+            return res.render('index',{title:"please login to see this page",display:true});     
+        }
+
+    },
+    getcategorydetails: async function(req,res){
+        if(req.session.username != null){
+            category = await CategoryService.getCategory(req.session.username,req.params.id);
+            if(category!=null){
+                return res.render('categorydetail',{category:category});
             }
         }else{
             return res.render('index',{title:"please login to see this page",display:true});     

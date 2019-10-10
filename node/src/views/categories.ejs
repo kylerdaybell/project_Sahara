@@ -9,20 +9,22 @@
 
             <a href="/newcategory" class="w3-button">New Category</a>
             <div class="container w3-row w3-center">
-            <% for(var i=0; i < title.length; i++) { %>
+            <% for(var i=0; i < categories.length; i++) { %>
                 <%if(i%4 == 0){%>
                     </div>
                     <div class="container w3-row ">
                 <%}%>
+                <a href = "/categorydetails/<%=categories[i]['ID']%>" style="text-decoration: none">
                 <div class="w3-container w3-quarter w3-hover-shadow">
-                    <div class="container <%=title[i]['COLOR']%>">
-                        <h2 class="card-title w3-text-white"><%=title[i]['TITLE']%></h2>
+                    <div class="container <%=categories[i]['COLOR']%>">
+                        <h2 class="card-title w3-text-white"><%=categories[i]['TITLE']%></h2>
                     </div>
                     <div class="card-body">
-                    <p class="card-text"><%=title[i]['DISCRIPTION']%></p>
-                    <a href="/editcategory/<%=title[i]['ID']%>" class="w3-button">...</a>
+                    <p class="card-text"><%=categories[i]['DISCRIPTION']%></p>
+                    <a href="/editcategory/<%=categories[i]['ID']%>" class="w3-button">...</a>
                     </div>
                 </div>
+                </a>
             <% } %>
             </div>
         </div>
