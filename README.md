@@ -1,2 +1,4 @@
 # Project Sahara
-a node.js project for builders
+## a scheduling app for students.
+most students don't have an effective scheduling app. the goal of sahara is to make scheduling things much more simple and easy.
+
