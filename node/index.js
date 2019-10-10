@@ -57,12 +57,9 @@ app.get('/home',function(req,res){
 app.post('/login',function(req,res){
   logincontroller.postlogin(req,res);
 });
-app.get('/register',function(req,res){
-  logincontroller.getregister(req,res);
-});
 
-app.post('/register',function(req,res){
-  logincontroller.postregister(req,res);
+app.get('/logout',function(req,res){
+  logincontroller.getlogout(req,res);
 });
 
 app.get('/register',function(req,res){
