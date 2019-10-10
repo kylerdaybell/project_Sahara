@@ -9,18 +9,18 @@
                   <h2>Edit Category</h2>
               </div>
             <form class = "w3-container" action="/updatecategory" method="post">
-                  <input type="hidden" value="<%-category['ID']%>" name="id">
+                  <input type="hidden" value="<%-category.id%>" name="id">
                   <label >Title</label>
-                  <input type="text" class="w3-input" placeholder="enter category title" value="<%-category['TITLE']%>" name="title" required>
+                  <input type="text" class="w3-input" placeholder="enter category title" value="<%-category.title%>" name="title" required>
                   <label>description</label>
-                  <input type="textarea" class="w3-input" placeholder="description" value="<%-category['DISCRIPTION']%>"  name="description" required>
+                  <input type="textarea" class="w3-input" placeholder="description" value="<%-category.description%>"  name="description" required>
                   <label >color</label>
                   <select name="color">
-                    <option value="<%-category['COLOR']%>" selected><%-category['COLOR']%></option>
+                    <option value="<%-category.color%>" selected><%-category['COLOR']%></option>
                     <%- include colorselect.ejs %>
                   </select>
                   <button type="submit" class="w3-btn w3-blue">update</button>
-                  <a href="/removecategory/<%-category['ID']%>" class="w3-btn w3-red">delete</a>  
+                  <a href="/removecategory/<%-category.id%>" class="w3-btn w3-red">delete</a>  
             </form> 
           </div>  
         </div>
