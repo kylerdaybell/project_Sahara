@@ -85,7 +85,7 @@ var SaharaSQLService ={
     },
     getAllUserEvents: async function(userid){
         const con = await this.getConnection();
-        var Events = await con.execute("select a.id  from CATEGORY as a  inner join EVENTS as b on a.ID = b.CATEGORY_ID;");
+        var Events = await con.execute("select *  from CATEGORY as a  inner join EVENTS as b on a.ID = b.CATEGORY_ID;");
         return Events;
     },
     getConnection: async function(){

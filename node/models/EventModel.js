@@ -1,6 +1,7 @@
 class Event{
-    constructor(id,category,title,color,description,starttime,endtime){
+    constructor(id,categoryid,title,color,description,starttime,endtime){
         this.id = id;
+        this.categoryid = categoryid;
         this.title = title;
         this.description = description;
         this.color = color;
